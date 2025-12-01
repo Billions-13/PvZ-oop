@@ -3,7 +3,7 @@ public class Walnut extends Plant {
     private static final int default_health = 4000;
     private static final int default_sunCost = 50;
     private static final double cooldown = 30.0;
-    private static final String default_spritePath = "Walnut.png";
+    private static final String default_spritePath = "walnut.gif";
 
     public Walnut(int row, int col, double positionX, double positionY) {
         super("Walnut",

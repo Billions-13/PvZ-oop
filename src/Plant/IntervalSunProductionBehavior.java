@@ -13,16 +13,20 @@ public class IntervalSunProductionBehavior implements SunProductionBehavior {
         if (!source.isAlive()) return;
 
         double elapsed = currentTime - source.getLastActTime();
-        if (elapsed < produceInterval) {
-            return;
-        }
+        if (elapsed < produceInterval) return;
 
-        // Hook: sau này nối với SunManager / GameBoard để spawn Sun object thật
-        System.out.println(
-                "Sunflower at row " + source.getRow()
-                        + ", col " + source.getCol()
-                        + " produces sun (value = " + sunAmount + ")"
+        double x = source.getPositionX();
+        double y = source.getPositionY() - 40;
+
+        Sun sun = new Sun(
+                x,
+                y,
+                sunAmount,
+                false,   // fromSky = false → không rơi
+                y        // targetY không dùng
         );
+
+        source.getGameWorld().addSun(sun); // hoặc truyền world từ ngoài vào
 
         source.setLastActTime(currentTime);
     }

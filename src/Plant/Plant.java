@@ -17,7 +17,7 @@ public abstract class Plant {
     private AttackHandler attackHandler;
     private AttackBehavior attackBehavior;
 
-    // 🔥 NEW: trạng thái Plant (state machine đơn giản)
+    //: trạng thái Plant (state machine đơn giản)
     private PlantState state = PlantState.SPAWNING;
 
     // =============== CONSTRUCTOR ===============

@@ -5,7 +5,7 @@ public class Snowpea extends Plant {
     private static final double speed = 1.2;
     private static final double cooldown = 7.5;
     private static final int default_sunCost = 175;
-    private static final String default_spritePath = "Snowpea.png";
+    private static final String default_spritePath = "Snowpea_idle.gif";
 
     public Snowpea(int row, int col, double positionX, double positionY) {
         super("Snowpea",

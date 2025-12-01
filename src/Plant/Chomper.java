@@ -2,16 +2,16 @@ public class Chomper extends Plant {
 
     private static final int default_health = 300;
     private static final int damage = 150;          // cắn rất đau
-    private static final double biteCool    down = 7.0; // thời gian giữa hai cú cắn
+    private static final double biteCooldown = 7.0; // thời gian giữa hai cú cắn
     private static final double cooldown = 7.0;
     private static final int default_sunCost = 150;
-    private static final String default_spritePath = "Chomper.png";
+    private static final String default_spritePath = "CHOMPER.gif";
 
     public Chomper(int row, int col, double positionX, double positionY) {
         super("Chomper",
                 default_health,
                 damage,
-                biteCooldown,
+                biteCooldown,   // dùng chung làm attackSpeed
                 cooldown,
                 row,
                 col,
@@ -34,31 +34,18 @@ public class Chomper extends Plant {
 
     @Override
     public void update(double currentTime) {
-        if (!isAlive())
-            return;
+        if (!isAlive()) return;
 
         if (getState() == PlantState.SPAWNING) {
             setState(PlantState.IDLE);
         }
 
-        double elapsed = currentTime - getLastActTime();
-        if (elapsed >= getAttackSpeed()) {
-            performBite();
-            setLastActTime(currentTime);
-        }
-
-
+        // doAttack
         if (canAct(currentTime)) {
-            doAttack();
+            doAttack();                 // BiteAttackBehavior sẽ gọi AttackHandler
             setLastActTime(currentTime);
         }
     }
-
-   /* private void performBite() {
-        // Hook: trong game thật, Chomper sẽ tìm zombie gần nhất trong tầm rồi cắn one-shot
-        System.out.println("Chomper at row " + getRow() + ", col " + getCol()
-                + " bites a zombie (damage = " + getAttackDamage() + ")");
-    }*/
 
     @Override
     public void onRemoved() {

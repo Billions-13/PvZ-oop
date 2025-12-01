@@ -5,7 +5,7 @@ public class PeaShooter extends Plant {
     private static final double speed = 1.2;
     private static final double cooldown = 7.5;
     private static final int default_sunCost = 100;
-    private static final String default_spritePath = "PlantsVsZombies_-_Copy_qTEU7zHTrG";
+    private static final String default_spritePath = "PEASHOOTER_1.gif";
 
     public PeaShooter(int row, int col, double positionX, double positionY) {
         super("PeaShooter",
