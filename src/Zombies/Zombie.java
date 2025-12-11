@@ -55,9 +55,7 @@ public class Zombie extends JPanel {
             Iterator iterator = zombieArrayList.iterator();
             while (iterator.hasNext()) {
                 Zombie zombie = (Zombie) iterator.next();
-                //如果僵尸正在攻击
                 if (zombie.getState() == Zombie.State.ATTACK) {
-                    //如果草地种有植物
                     if (gamePlay.getGrass(zombie.getLabelX(), zombie.getLabelY() + 50).isAssigned()) {
                         gamePlay.getGrass(zombie.getLabelX(), zombie.getLabelY() + 50).loseLife();
                     }
@@ -129,4 +127,5 @@ public class Zombie extends JPanel {
         }
         resetSpeedTimer.restart();
     }
+
 }    
